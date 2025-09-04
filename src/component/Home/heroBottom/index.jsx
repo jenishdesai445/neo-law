@@ -92,8 +92,8 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
       scrollTrigger: {
         trigger: textRef.current.parentElement,
         start: 'top top',
-        end: '+=100%',
-        pin: true,
+        end: '+=200%',
+        pin: false,
         scrub: 0.1,
         markers: false,
       },
