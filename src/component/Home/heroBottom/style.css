@@ -1,0 +1,49 @@
+.txt-wrapper {
+  width: 50vw;
+  overflow: hidden;
+  flex-direction: column;
+  height: 100%;
+}
+
+.text-outer-wrapper {
+  overflow: hidden;
+  max-width: 1680px;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.txt-wrapper p {
+  color: #a8463f4d;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .text-outer-wrapper {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .txt-wrapper {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .text-outer-wrapper {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .txt-wrapper {
+    width: 100%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .text-outer-wrapper {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .txt-wrapper {
+    width: 60vw;
+  }
+}

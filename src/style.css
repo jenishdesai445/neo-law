@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+@font-face {
+  font-family: 'Times';
+  src: url(/public/font/TimesNow-SemiBoldItalic.woff2);
+}
+
+body {
+  font-family: 'Lexend' !important;
+}
+#root {
+  position: relative;
+  height: 100%;
+}
+.scrollBarWidth {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@keyframes slide-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(5px); /* Adjust the distance as needed */
+  }
+}
+
+.scrollbar::-webkit-scrollbar {
+  display: none;
+}

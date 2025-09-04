@@ -1,0 +1,249 @@
+import { Box, Flex, Heading, Image, Text, VStack } from '@chakra-ui/react';
+import {
+  FaShieldAlt,
+  FaLightbulb,
+  FaHandshake,
+  FaRocket,
+  FaGlobe,
+  FaChartLine,
+  FaBalanceScale,
+  FaUsers,
+} from 'react-icons/fa';
+import { useRef, useEffect, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Create a motion component for the cards
+const MotionBox = motion(Box);
+
+export default function ExpertiseSection() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  useEffect(() => {
+    if (isInView) {
+      setIsVisible(true);
+    }
+  }, [isInView]);
+
+  const scrollContainer = useRef(null);
+  const expertiseItemsRef = useRef([]);
+
+  const expertiseItems = [
+    // Your array of expertise items
+    {
+      number: '01.',
+      icon: '/image/icon/cardLogo.png',
+      title: 'UI/UX Design',
+      description:
+        'We create intuitive and beautiful interfaces that people love to use.',
+    },
+    {
+      number: '02.',
+      icon: '/image/icon/cardLogo.png',
+      title: 'Web Development',
+      description:
+        'Building robust and scalable web applications with modern frameworks.',
+    },
+    {
+      number: '03.',
+      icon: '/image/icon/cardLogo.png',
+      title: 'Mobile Apps',
+      description: 'Developing high-performance iOS and Android applications.',
+    },
+    {
+      number: '04.',
+      icon: '/image/icon/cardLogo.png',
+      title: 'Mobile Apps',
+      description: 'Developing high-performance iOS and Android applications.',
+    },
+    {
+      number: '05.',
+      icon: '/image/icon/cardLogo.png',
+      title: 'Mobile Apps',
+      description: 'Developing high-performance iOS and Android applications.',
+    },
+  ];
+
+  useEffect(() => {
+    const panels = expertiseItemsRef.current;
+
+    // Set up the horizontal scroll animation
+    let scrollTween = gsap.to(panels, {
+      xPercent: -100 * (panels.length - 2),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: scrollContainer.current,
+        pin: true,
+        scrub: 0.1,
+        start: '200px',
+        end: `+=${scrollContainer.current.offsetWidth}`, // The end value is crucial.
+      },
+    });
+
+    return () => {
+      // Clean up the GSAP animation on component unmount
+      scrollTween.kill();
+    };
+  }, []);
+
+  return (
+    <Box
+      py={{ base: '60px', md: '100px' }}
+      px={{ base: '20px', md: '40px', lg: '120px' }}
+      bg="#FFF0DB"
+      mr={{ lg: '60px' }}
+      position={'relative'}
+      height={{ base: '110vh', xl: '130vh' }}
+      overflow={'hidden'}
+      ref={scrollContainer}
+    >
+      <VStack align={{ base: 'center', lg: 'flex-start' }} mb="60px" mx="auto">
+        <Heading
+          as="h2"
+          fontSize={{ base: '30px', md: '60px', '2xl': '80px' }}
+          fontWeight="200"
+          color="#A8463F"
+          mb="20px"
+        >
+          Our{' '}
+          <Text
+            as={'span'}
+            fontStyle={'italic'}
+            fontFamily={'Times'}
+            fontWeight={'400'}
+          >
+            {' '}
+            Expertise{' '}
+          </Text>
+        </Heading>
+        <Text
+          fontSize={{ base: '20px', md: '30px', '2xl': '40px' }}
+          color="#A8463F"
+          maxW="1024px"
+          fontWeight={'200'}
+          lineHeight="tall"
+          textAlign={{ base: 'center', lg: 'start' }}
+        >
+          We provide smart, future-ready{' '}
+          <Text
+            as="span"
+            fontWeight="400"
+            fontFamily={'Times'}
+            fontStyle={'italic'}
+          >
+            legal solutions
+          </Text>{' '}
+          for startups, tech companies, and growing businesses. From{' '}
+          <Text
+            as="span"
+            fontWeight="400"
+            fontFamily={'Times'}
+            fontStyle={'italic'}
+          >
+            IP protection
+          </Text>{' '}
+          to M&A and regulatory compliance, our team combines deep{' '}
+          <Text
+            as="span"
+            fontWeight="400"
+            fontFamily={'Times'}
+            fontStyle={'italic'}
+          >
+            legal insight
+          </Text>{' '}
+          with a modern, tech-driven approach.
+        </Text>
+      </VStack>
+
+      <Box
+        maxW="90%"
+        mx="auto"
+        position={{ base: 'relative', md: 'absolute' }}
+        right={{ lg: '-60px' }}
+        overflow="hidden"
+      >
+        <Flex
+          direction={{ base: 'row', md: 'row' }}
+          flexWrap="nowrap"
+          justify="space-between"
+          bg="#A8463F"
+          py={'25px'}
+          px={{ base: '20px', lg: '60px' }}
+          overflow={'hidden'}
+          className="scrollbar" // Note: This class is for styling the scrollbar on non-GSAP-controlled elements.
+        >
+          {expertiseItems.map((item, index) => (
+            <Box
+              ref={el => (expertiseItemsRef.current[index] = el)}
+              key={index}
+              color="white"
+              width={{
+                base: '100%',
+                md: 'calc(50% - 10px)',
+                lg: '519px',
+              }}
+              minWidth={{
+                base: '100%',
+                md: 'calc(50% - 10px)',
+                lg: '519px',
+              }}
+              // You can keep the Framer Motion stuff if you want, but GSAP now controls the position.
+              // custom={index}
+              // variants={cardVariants}
+              // initial="hidden"
+              // animate={isVisible ? 'visible' : 'hidden'}
+            >
+              {/* The rest of your component's JSX */}
+              <Text
+                fontSize={{ base: '30px', md: '40px', '2xl': '60px' }}
+                fontWeight={'200'}
+                mb="10px"
+              >
+                {item.number}
+              </Text>
+              <Flex borderTop={'1px solid white'} pt="45px" mb="15px">
+                <Flex
+                  flexDirection={'column'}
+                  gap={'16px'}
+                  borderRight={'1px solid white'}
+                  pl={{
+                    base: item.number === '01.' ? '0px' : '30px',
+                    lg: item.number === '01.' ? '0px' : '60px',
+                  }}
+                  pr={{ base: '30px', lg: '60px' }}
+                >
+                  <Box mr="10px">
+                    <Image
+                      src={item.icon}
+                      alt="icon"
+                      width={{ base: '50px', xl: 'auto' }}
+                    />
+                  </Box>
+                  <Heading
+                    as="h3"
+                    fontSize={{ base: '20px', md: '24px', '2xl': '34px' }}
+                    fontWeight="200"
+                  >
+                    {item.title}
+                  </Heading>
+                  <Text
+                    fontSize={{ base: '18px', md: '20px', '2px': '24px' }}
+                    fontStyle={'ExtraLight'}
+                    fontWeight={'200'}
+                  >
+                    {item.description}
+                  </Text>
+                </Flex>
+              </Flex>
+            </Box>
+          ))}
+        </Flex>
+      </Box>
+    </Box>
+  );
+}
