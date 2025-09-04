@@ -37,7 +37,7 @@ const ImageHeroSection = () => {
   useEffect(() => {
     if (imageContainerRef.current) {
       gsap.to(imageContainerRef.current, {
-        height: isShrunk ? '' : '100vh', // Animate to 600px or back to 100vh
+        height: isShrunk ? '20vh' : '100vh', // Animate to 600px or back to 100vh
         duration: 0.8, // Set the animation duration
         ease: 'power2.inOut', // Use a smooth easing function
       });
