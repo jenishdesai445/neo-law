@@ -6,6 +6,7 @@ import {
   Flex,
   Icon,
   Link,
+  Image,
 } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import {
@@ -20,12 +21,12 @@ import NeoButton from '../../common/button';
 
 const PracticeAreaCard = ({ title, description, icon, no }) => (
   <Box
-    p={4}
+    px={4}
     borderRight={no === '3' ? '0' : '1px' && no === '6' ? '0' : '1px'}
     borderColor="#A8463F"
     transition="border-color 0.2s"
   >
-    <Icon as={icon} w={8} h={8} color="#A8463F" mr={3} />
+    <Image src={icon} color="#A8463F" mr={3} />
 
     <Heading
       as="h3"
@@ -37,6 +38,7 @@ const PracticeAreaCard = ({ title, description, icon, no }) => (
       }}
       fontWeight="200"
       color={'#A8463F'}
+      mt={'18px'}
     >
       {title}
     </Heading>
@@ -45,7 +47,8 @@ const PracticeAreaCard = ({ title, description, icon, no }) => (
       fontStyle={'ExtraLight'}
       fontWeight={'200'}
       color="#A8463F"
-      mb={4}
+      mt={'5px'}
+      mb={'30px'}
     >
       {description}
     </Text>
@@ -60,42 +63,42 @@ const PracticeAreaSection = () => {
       title: 'Technology Law',
       description:
         'Navigating regulations around software, platforms, and emerging technologies.',
-      icon: IoIosMegaphone,
+      icon: '/image/icon/Research.png',
     },
     {
       no: '2',
       title: 'Intellectual Property Protection',
       description:
         'Safeguarding your innovations with trademarks, patents, and copyrights.',
-      icon: IoIosPaper,
+      icon: '/image/icon/Pricing.png',
     },
     {
       no: '3',
       title: 'Corporate & M&A',
       description:
         'Structuring smart deals, mitigating risks, and driving business growth.',
-      icon: IoIosBusiness,
+      icon: '/image/icon/ResponseTime.png',
     },
     {
       no: '4',
       title: 'Data Privacy Compliance',
       description:
         'Helping you stay ahead of GDPR, CCPA, and evolving privacy laws.',
-      icon: IoIosLock,
+      icon: '/image/icon/Research.png',
     },
     {
       no: '5',
       title: 'Startups & Venture Capital',
       description:
         'Legal frameworks that scale with your business—from seed to IPO.',
-      icon: IoIosRocket,
+      icon: '/image/icon/Pricing.png',
     },
     {
       no: '6',
       title: 'Dispute Resolution',
       description:
         'Clear, strategic representation to resolve conflicts efficiently.',
-      icon: IoIosHammer,
+      icon: '/image/icon/ResponseTime.png',
     },
   ];
 
@@ -107,6 +110,7 @@ const PracticeAreaSection = () => {
         color="#A8463F"
         fontWeight="200"
         whiteSpace="nowrap"
+        mt={'22px'}
         mb={'10px'}
       >
         OUR{' '}
@@ -126,7 +130,11 @@ const PracticeAreaSection = () => {
         regulatory compliance, our team combines deep legal insight with a
         modern, tech-driven approach.
       </Text>
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5}>
+      <SimpleGrid
+        columns={{ base: 1, md: 2, lg: 3 }}
+        spacing={5}
+        rowGap={'50px'}
+      >
         {practiceAreas.map((area, index) => (
           <PracticeAreaCard key={index} {...area} />
         ))}

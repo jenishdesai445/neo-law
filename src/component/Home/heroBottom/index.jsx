@@ -93,7 +93,11 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
         trigger: textRef.current.parentElement,
         start: 'top top',
         end: '+=200%',
+<<<<<<< Updated upstream
         pin: false,
+=======
+        pin: true,
+>>>>>>> Stashed changes
         scrub: 0.1,
         markers: false,
       },
@@ -125,7 +129,7 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
             lg: '35px',
             '2xl': '40px',
           }}
-          mt={{ base: '50', md: '150px', lg: '180px', xl: '228px' }}
+          mt={{ base: '50px', md: '150px', lg: '180px', xl: '228px' }}
           ref={textRef}
           fontWeight={'200'}
           textAlign={{ base: 'center', lg: 'start' }}
@@ -171,53 +175,7 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
             alignItems={{ base: 'center', lg: 'start' }}
             justifyContent={{ base: 'center', lg: 'start' }}
           >
-            {/* <Button
-              variant="outline"
-              borderColor="#b46464"
-              color="#b46464"
-              fontWeight={'200'}
-              size="lg"
-              borderRadius="0"
-              rightIcon={
-                <Icon
-                  as={BsChevronRight}
-                  sx={{
-                    transition: 'transform 0.2s ease-in-out',
-                    '.chakra-button:hover &': {
-                      animation: 'slide-right 0.3s forwards',
-                    },
-                  }}
-                />
-              }
-              _hover={{ bg: '#fbf0ef' }}
-              px={8}
-            >
-              Schedule a Consultation
-            </Button>
-            <Button
-              variant="outline"
-              borderColor="#b46464"
-              color="#b46464"
-              size="lg"
-              borderRadius="0"
-              fontWeight={'200'}
-              rightIcon={
-                <Icon
-                  as={BsChevronRight}
-                  sx={{
-                    transition: 'transform 0.2s ease-in-out',
-                    '.chakra-button:hover &': {
-                      animation: 'slide-right 0.3s forwards',
-                    },
-                  }}
-                />
-              }
-              _hover={{ bg: '#fbf0ef' }}
-              px={8}
-            >
-              View Our Expertise
-            </Button> */}
-            <NeoButton>Schedule a Consultation</NeoButton>
+            {/* <NeoButton>Schedule a Consultation</NeoButton> */}
 
             <NeoButton>View Our Expertise</NeoButton>
           </Flex>

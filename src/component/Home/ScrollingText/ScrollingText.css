@@ -160,10 +160,16 @@
 
 .scrolling-text-2-inner:nth-child(1) .scrolling-text-2-fragment {
   /* Increased from -20% to -75% for faster scrolling */
-  transform: translate(calc((var(--scroll-progress) - 1) * -25%));
+  transform: translate(calc((var(--scroll-progress) - 0.6) * -3000px));
 }
 
 .scrolling-text-2-inner:nth-child(2) .scrolling-text-2-fragment {
   /* Increased from 50% to 100% for faster scrolling */
   transform: translate(calc((var(--scroll-progress) - 1) * 100%));
 }
+@media (min-width: 768px) and (max-width: 320px) {
+  .scrolling-text-2-inner:nth-child(1) .scrolling-text-2-fragment {
+    /* Increased from -20% to -75% for faster scrolling */
+    transform: translate(calc((var(--scroll-progress) - 1) * -100%));
+  }
+} 

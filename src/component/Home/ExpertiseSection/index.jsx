@@ -36,52 +36,80 @@ export default function ExpertiseSection() {
   const expertiseItems = [
     // Your array of expertise items
     {
-      number: '01.',
-      icon: '/image/icon/cardLogo.png',
-      title: 'UI/UX Design',
+      no: '01.',
+      title: 'Technology Law',
       description:
-        'We create intuitive and beautiful interfaces that people love to use.',
+        'Navigating regulations around software, platforms, and emerging technologies.',
+      icon: '/image/icon/cardLogo.png',
     },
     {
-      number: '02.',
-      icon: '/image/icon/cardLogo.png',
-      title: 'Web Development',
+      no: '02.',
+      title: 'Intellectual Property',
       description:
-        'Building robust and scalable web applications with modern frameworks.',
+        'Safeguarding your innovations with trademarks, patents, and copyrights.',
+      icon: '/image/icon/cardLogo.png',
     },
     {
-      number: '03.',
+      no: '03.',
+      title: 'Corporate & M&A',
+      description:
+        'Structuring smart deals, mitigating risks, and driving business growth.',
       icon: '/image/icon/cardLogo.png',
-      title: 'Mobile Apps',
-      description: 'Developing high-performance iOS and Android applications.',
     },
     {
-      number: '04.',
+      no: '04.',
+      title: 'Data Privacy Compliance',
+      description:
+        'Helping you stay ahead of GDPR, CCPA, and evolving privacy laws.',
       icon: '/image/icon/cardLogo.png',
-      title: 'Mobile Apps',
-      description: 'Developing high-performance iOS and Android applications.',
     },
     {
-      number: '05.',
+      no: '05.',
+      title: 'Startups & Venture Capital',
+      description:
+        'Legal frameworks that scale with your business—from seed to IPO.',
       icon: '/image/icon/cardLogo.png',
-      title: 'Mobile Apps',
-      description: 'Developing high-performance iOS and Android applications.',
+    },
+    {
+      no: '06.',
+      title: 'Dispute Resolution',
+      description:
+        'Clear, strategic representation to resolve conflicts efficiently.',
+      icon: '/image/icon/cardLogo.png',
     },
   ];
 
   useEffect(() => {
     const panels = expertiseItemsRef.current;
+    const getXPercent = () => {
+      if (window.innerWidth >= 1600) {
+        return -100 * (panels.length - 3);
+      }
+      // Desktop/large screens (show 3 cards)
+      if (window.innerWidth >= 1024) {
+        return -100 * (panels.length - 2);
+      }
+      if (window.innerWidth >= 992) {
+        return -100 * (panels.length - 1.5);
+      }
+      // Tablet/medium screens (show 2 cards)
+      if (window.innerWidth >= 768) {
+        return -100 * (panels.length - 1.5);
+      }
+      // Mobile/small screens (show 1 card)
+      return -100 * (panels.length - 0.5);
+    };
 
     // Set up the horizontal scroll animation
     let scrollTween = gsap.to(panels, {
-      xPercent: -100 * (panels.length - 2),
+      xPercent: getXPercent(),
       ease: 'none',
       scrollTrigger: {
         trigger: scrollContainer.current,
         pin: true,
         scrub: 0.1,
         start: '200px',
-        end: `+=${scrollContainer.current.offsetWidth}`, // The end value is crucial.
+        end: '+=1000',
       },
     });
 
@@ -98,14 +126,14 @@ export default function ExpertiseSection() {
       bg="#FFF0DB"
       mr={{ lg: '60px' }}
       position={'relative'}
+      maxW={{ base: '100%', lg: 'calc(100% - 65px)' }}
       height={{ base: '110vh', xl: '130vh' }}
-      overflow={'hidden'}
       ref={scrollContainer}
     >
-      <VStack align={{ base: 'center', lg: 'flex-start' }} mb="60px" mx="auto">
+      <VStack align={{ base: 'center', lg: 'flex-start' }} mb="60px">
         <Heading
           as="h2"
-          fontSize={{ base: '30px', md: '60px', '2xl': '80px' }}
+          fontSize={{ base: '40px', md: '45px', xl: '60px', '2xl': '80px' }}
           fontWeight="200"
           color="#A8463F"
           mb="20px"
@@ -161,7 +189,7 @@ export default function ExpertiseSection() {
       </VStack>
 
       <Box
-        maxW="90%"
+        maxW={{ base: '100%', md: '90%' }}
         mx="auto"
         position={{ base: 'relative', md: 'absolute' }}
         right={{ lg: '-60px' }}
@@ -204,7 +232,7 @@ export default function ExpertiseSection() {
                 fontWeight={'200'}
                 mb="10px"
               >
-                {item.number}
+                {item.no}
               </Text>
               <Flex borderTop={'1px solid white'} pt="45px" mb="15px">
                 <Flex
@@ -212,8 +240,8 @@ export default function ExpertiseSection() {
                   gap={'16px'}
                   borderRight={'1px solid white'}
                   pl={{
-                    base: item.number === '01.' ? '0px' : '30px',
-                    lg: item.number === '01.' ? '0px' : '60px',
+                    base: item.no === '01.' ? '0px' : '30px',
+                    lg: item.no === '01.' ? '0px' : '60px',
                   }}
                   pr={{ base: '30px', lg: '60px' }}
                 >
@@ -228,12 +256,13 @@ export default function ExpertiseSection() {
                     as="h3"
                     fontSize={{ base: '20px', md: '24px', '2xl': '34px' }}
                     fontWeight="200"
+                    fontFamily={'Lexend'}
                   >
                     {item.title}
                   </Heading>
                   <Text
                     fontSize={{ base: '18px', md: '20px', '2px': '24px' }}
-                    fontStyle={'ExtraLight'}
+                    fontStyle={'ExtraLight'} 
                     fontWeight={'200'}
                   >
                     {item.description}

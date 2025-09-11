@@ -17,21 +17,6 @@ const teamMembers = [
     title: 'Founder of the T200 Foundation',
     imageUrl: '/image/userImage.png',
   },
-  {
-    name: 'Suja Chandrasekaran',
-    title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png',
-  },
-  {
-    name: 'Suja Chandrasekaran',
-    title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png',
-  },
-  {
-    name: 'Suja Chandrasekaran',
-    title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png',
-  },
 ];
 
 const OurTeam = () => {
@@ -41,6 +26,7 @@ const OurTeam = () => {
       maxW={'1680px'}
       margin={'auto'}
       px={'20px'}
+      pt={{ base: '50px' }}
       pb={{ base: '50px', md: '60px', '2xl': '100px' }}
     >
       <Text

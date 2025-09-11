@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Heading, Text, Flex, VStack, Image } from '@chakra-ui/react';
 
-const OurExpertiseHero = () => {
+const GetInTouchHero = () => {
   return (
     <Box>
       <Box
@@ -24,9 +24,9 @@ const OurExpertiseHero = () => {
               fontWeight="200"
               whiteSpace="nowrap"
             >
-              OUR{' '}
+              GET IN{' '}
               <Text as="span" fontStyle="italic" fontFamily={'Times'}>
-                EXPERTISE
+                TOUCH
               </Text>
             </Heading>
           </VStack>
@@ -43,24 +43,14 @@ const OurExpertiseHero = () => {
             width={'80%'}
             marginLeft={'auto'}
           >
-            At{' '}
-            <Text as="span" fontWeight="400" fontFamily={'Times'}>
-              NEO Legal
-            </Text>
-            , we believe the future of law is smarter, faster, and more
-            transparent. Our team combines deep legal expertise with innovative
-            technology to deliver solutions that keep pace with modern business.
-            Whether protecting intellectual property, guiding a startup, or
-            structuring a complex deal, we’re committed to helping clients move
-            forward with confidence.
+            Our professional team is readily available to address your needs and
+            provide timely and informed responses. You can reach us through the
+            contact form below.
           </Text>
         </Flex>
-      </Box>
-      <Box>
-        <Image src="/image/scales-justice-law-library2.png" />
       </Box>
     </Box>
   );
 };
 
-export default OurExpertiseHero;
+export default GetInTouchHero;

@@ -5,6 +5,7 @@ import Footer from './component/footer';
 import HomePage from './pages/homePage';
 import AboutUsPage from './pages/aboutUsPage';
 import OurExpertisePages from './pages/ourExpertisePage';
+import GetInTouchpage from './pages/getInTouchpage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/our-expertise" element={<OurExpertisePages />} />
+          <Route path="/get-in-touch" element={<GetInTouchpage />} />
           {/* <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/products" element={<ProductsPage />} /> */}

@@ -54,9 +54,9 @@ const AboutHero = () => {
           </Text>
         </Flex>
       </Box>
-      <Box>
+      {/* <Box>
         <Image src="/image/scales-justice-law-library.png" />
-      </Box>
+      </Box> */}
     </Box>
   );
 };

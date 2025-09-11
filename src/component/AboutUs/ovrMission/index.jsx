@@ -1,13 +1,19 @@
-import { Box, Flex, SimpleGrid, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 
 const MissionSection = () => {
   return (
-    <Box bg={'#FFF0DB'}>
+    <Box
+      bg={'#FFF0DB'}
+      bgImage="url('/image/bgOverMission.png')"
+      bgPosition="center"
+      bgRepeat="no-repeat"
+      bgSize="cover"
+    >
       <Box
         maxW={'1679px'}
         margin={'auto'}
         px={{ base: '20px' }}
-        pt={{ base: '50px', '2xl': '107px' }}
+        py={{ base: '50px', md: '80px', '2xl': '117px' }}
       >
         <Flex
           gap={{ base: '20px', md: '40px', xl: '60px', '2xl': '97px' }}
@@ -17,6 +23,7 @@ const MissionSection = () => {
             fontSize={{ base: '30px', md: '45px', xl: '60px', '2xl': '80px' }}
             fontWeight="200"
             color="#A8463F"
+            lineHeight={'normal'}
           >
             OUR{' '}
             <Text as={'span'} fontFamily={'Times'}>
@@ -34,56 +41,27 @@ const MissionSection = () => {
             }}
             fontWeight={'200'}
             color="#A8463F"
+            textAlign={'justify'}
           >
-            At NEO Legal, our mission is simple: to{' '}
             <Text as="span" fontFamily={'Times'}>
-              redefine legal services
+              {' '}
+              At NEO Legal,
             </Text>{' '}
-            for the{' '}
+            our mission is to adapt legal services to the needs of the modern
+            era. We integrate{' '}
             <Text as="span" fontFamily={'Times'}>
-              modern era.
+              legal expertise
             </Text>{' '}
-            We combine deep legal expertise with technology-driven efficiency to{' '}
+            with technology to{' '}
             <Text as="span" fontFamily={'Times'}>
-              deliver faster, smarter, and more transparent solutions
+              improve efficiency, clarity, and accessibility.
             </Text>
-            . From{' '}
-            <Text as="span" fontStyle="italic" fontFamily={'Times'}>
-              ambitious startups
-            </Text>{' '}
-            to{' '}
-            <Text as="span" fontStyle="italic" fontFamily={'Times'}>
-              established enterprises
-            </Text>
-            , we empower clients to innovate boldly while staying legally
-            secure.
+            Our work spans from supporting startups to assisting established
+            enterprises with their legal requirements.
           </Text>
         </Flex>
 
-        {/* Team Images Section */}
-        <Flex justifyContent="center" mt={{ base: 8, md: 0 }}>
-          {/* You would replace these with actual Image components 
-            and source URLs for the team members. 
-            For this example, I'm using placeholder Box components.
-          */}
-          <Flex
-            direction="row"
-            flexWrap="wrap"
-            justifyContent="center"
-            gap={4}
-            w="100%"
-          >
-            {/* These Box components are placeholders for the team images */}
-            <Box>
-              <Image
-                src="/image/medium-shot-business-people.png"
-                alt="Team member 1"
-                w="100%"
-                h="100%"
-              />
-            </Box>
-          </Flex>
-        </Flex>
+        {/* The original image section is removed because it's now a background */}
       </Box>
     </Box>
   );

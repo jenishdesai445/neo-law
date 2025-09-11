@@ -20,7 +20,7 @@ export default function HomePage() {
         <Box
           position={'absolute'}
           right={{ base: '20px', xl: '58px' }}
-          bottom={{ base: '180px', sm: '150px', md: '120px', xl: '230px' }}
+          bottom={{ base: '130px', sm: '120px', md: '100px', xl: '180px' }}
         >
           <SpinningText />
         </Box>

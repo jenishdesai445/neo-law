@@ -52,7 +52,7 @@ const HeroSectionBottom2 = () => {
           </Text>
         </Heading>
 
-        <NeoButton> Schedule a Consultation</NeoButton>
+        {/* <NeoButton> Schedule a Consultation</NeoButton> */}
       </Box>
     </Flex>
   );

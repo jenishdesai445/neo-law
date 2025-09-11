@@ -5,6 +5,7 @@ import MissionSection from '../../component/AboutUs/ovrMission';
 import FAQSection from '../../component/AboutUs/faqSection';
 import OurTeam from '../../component/AboutUs/overTeam';
 import OurValuesSection from '../../component/AboutUs/ourValues';
+import CeoMessage from '../../component/AboutUs/ceoMessage';
 
 export default function AboutUsPage() {
   // Reset scroll position on mount
@@ -16,6 +17,7 @@ export default function AboutUsPage() {
       <AboutHero />
       <MissionSection />
       <FAQSection />
+      <CeoMessage />
       <OurTeam />
       <OurValuesSection />
     </Box>
