@@ -93,11 +93,7 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
         trigger: textRef.current.parentElement,
         start: 'top top',
         end: '+=200%',
-<<<<<<< Updated upstream
-        pin: false,
-=======
         pin: true,
->>>>>>> Stashed changes
         scrub: 0.1,
         markers: false,
       },
