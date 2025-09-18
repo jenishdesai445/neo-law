@@ -2,7 +2,6 @@ import {
   Box,
   Flex,
   Text,
-  Link,
   Spacer,
   useMediaQuery,
   Image,
@@ -18,11 +17,21 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import React from 'react';
+import { NavLink } from 'react-router-dom'; // ✅ import NavLink
 
 const Header = () => {
   const [isLargerThan768] = useMediaQuery('(min-width: 768px)');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
+
+  // ✅ Common Nav items
+  const navItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About Us', path: '/about-us' },
+    { label: 'Expertise', path: '/our-expertise' },
+    { label: 'Blog', path: '/blog' }, // example route
+    { label: 'Contact', path: '/get-in-touch' },
+  ];
 
   return (
     <Flex
@@ -43,46 +52,22 @@ const Header = () => {
 
       {isLargerThan768 ? (
         <Flex gap={{ base: '20px', md: '20px', lg: '35px', '2xl': '46px' }}>
-          <Link
-            href="/"
-            fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
-            fontWeight={'200'}
-            _hover={{ textDecoration: 'none', color: '#A8463F' }}
-          >
-            Home
-          </Link>
-          <Link
-            href="/about-us"
-            fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
-            fontWeight={'200'}
-            _hover={{ textDecoration: 'none', color: '#A8463F' }}
-          >
-            About Us
-          </Link>
-          <Link
-            href="/our-expertise"
-            fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
-            fontWeight={'200'}
-            _hover={{ textDecoration: 'none', color: '#A8463F' }}
-          >
-            Expertise
-          </Link>
-          <Link
-            href="#"
-            fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
-            fontWeight={'200'}
-            _hover={{ textDecoration: 'none', color: '#A8463F' }}
-          >
-            Blog
-          </Link>
-          <Link
-            href="/get-in-touch"
-            fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
-            fontWeight={'200'}
-            _hover={{ textDecoration: 'none', color: '#A8463F' }}
-          >
-            Contact
-          </Link>
+          {navItems.map(item => (
+            <Text
+              key={item.path}
+              as={NavLink}
+              to={item.path}
+              fontSize={{ base: '18px', md: '18px', lg: '20px', '2xl': '24px' }}
+              fontWeight="200"
+              _hover={{ textDecoration: 'none', color: '#A8463F' }}
+              style={({ isActive }) => ({
+                color: isActive ? '#A8463F' : '#b46464', // active link highlight
+                fontWeight: isActive ? '500' : '200',
+              })}
+            >
+              {item.label}
+            </Text>
+          ))}
         </Flex>
       ) : (
         <>
@@ -109,51 +94,23 @@ const Header = () => {
               <DrawerHeader>Menu</DrawerHeader>
               <DrawerBody>
                 <VStack spacing={4} align="stretch">
-                  <Link
-                    href="/"
-                    fontSize="18px"
-                    fontWeight="200"
-                    onClick={onClose}
-                    _hover={{ textDecoration: 'none', color: '#A8463F' }}
-                  >
-                    Home
-                  </Link>
-                  <Link
-                    href="/about-us"
-                    fontSize="18px"
-                    fontWeight="200"
-                    onClick={onClose}
-                    _hover={{ textDecoration: 'none', color: '#A8463F' }}
-                  >
-                    About Us
-                  </Link>
-                  <Link
-                    href="/our-expertise"
-                    fontSize="18px"
-                    fontWeight="200"
-                    onClick={onClose}
-                    _hover={{ textDecoration: 'none', color: '#A8463F' }}
-                  >
-                    Expertise
-                  </Link>
-                  <Link
-                    href="#"
-                    fontSize="18px"
-                    fontWeight="200"
-                    onClick={onClose}
-                    _hover={{ textDecoration: 'none', color: '#A8463F' }}
-                  >
-                    Blog
-                  </Link>
-                  <Link
-                    href="/get-in-touch"
-                    fontSize="18px"
-                    fontWeight="200"
-                    onClick={onClose}
-                    _hover={{ textDecoration: 'none', color: '#A8463F' }}
-                  >
-                    Contact
-                  </Link>
+                  {navItems.map(item => (
+                    <Text
+                      key={item.path}
+                      as={NavLink}
+                      to={item.path}
+                      fontSize="18px"
+                      fontWeight="200"
+                      onClick={onClose} // close drawer on click
+                      _hover={{ textDecoration: 'none', color: '#A8463F' }}
+                      style={({ isActive }) => ({
+                        color: isActive ? '#A8463F' : '#b46464',
+                        fontWeight: isActive ? '500' : '200',
+                      })}
+                    >
+                      {item.label}
+                    </Text>
+                  ))}
                 </VStack>
               </DrawerBody>
             </DrawerContent>
