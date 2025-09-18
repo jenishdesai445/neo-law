@@ -57,7 +57,7 @@ const OurExpertiseHero = () => {
         </Flex>
       </Box>
       <Box>
-        <Image src="/image/scales-justice-law-library2.png" />
+        <Image src="/image/ourEXPERTISEheroImg.png" />
       </Box>
     </Box>
   );

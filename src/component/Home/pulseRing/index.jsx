@@ -13,7 +13,7 @@ export default function SpinningText() {
   const textRef = useRef(null);
 
   // The text you want to display
-  const textToDisplay = 'NEO LAW • NEO LAW • NEO LAW •';
+  const textToDisplay = ' LEGAL AND CORPORATE ★ CONSULTING ★';
 
   // Split the text and apply the rotation to each character
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function SpinningText() {
       const fontSize = {
         base: '8px', // Smaller font for small screens
         sm: '10px', // Standard font for medium screens
-        md: '20px', // Larger font for large screens
+        md: '22px', // Larger font for large screens
       };
 
       textElement.innerHTML = characters
@@ -93,6 +93,7 @@ export default function SpinningText() {
           }}
         >
           {/* Placeholder for the logo */}
+
           <Box
             position="absolute"
             bg="#FFF0DB"

@@ -85,7 +85,7 @@ const ContactForm = () => {
               gap={{ base: 6, sm: 8 }}
             >
               <FormControl>
-                <FormLabel
+                {/* <FormLabel
                   fontSize={{
                     base: '20px',
                     sm: '24px',
@@ -97,9 +97,10 @@ const ContactForm = () => {
                   fontWeight={'200'}
                 >
                   First Name*
-                </FormLabel>
+                </FormLabel> */}
                 <Input
                   variant="flushed"
+                  placeholder="First Name*"
                   borderColor={inputBorderColor}
                   _focus={{ borderColor: '#FFF0DB' }}
                 />

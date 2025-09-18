@@ -27,7 +27,7 @@ const OurTeam = () => {
       margin={'auto'}
       px={'20px'}
       pt={{ base: '50px' }}
-      pb={{ base: '50px', md: '60px', '2xl': '100px' }}
+      pb={{ base: '50px', md: '60px', '2xl': '117px' }}
     >
       <Text
         fontSize={{ base: '30px', md: '45px', xl: '60px', '2xl': '80px' }}

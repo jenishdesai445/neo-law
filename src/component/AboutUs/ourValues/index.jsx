@@ -1,34 +1,84 @@
 import { Box, Flex, Heading, Text, Icon, Image } from '@chakra-ui/react';
 import { CiCreditCard1 } from 'react-icons/ci';
-// Example icon import
-import { FaLaptopCode } from 'react-icons/fa';
+import { useState } from 'react';
 
-// This is a basic example of a single value card component
-const ValueCard = ({ icon, title, description }) => {
+const ValueCard = ({
+  icon,
+  title,
+  description,
+  isHighlighted,
+  defaultIconSrc,
+  hoverIconSrc,
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const currentBg = isHovered || isHighlighted ? '#A8463F' : 'transparent';
+  const currentColor = isHovered || isHighlighted ? 'white' : '#A8463F';
+  const currentBorder =
+    isHovered || isHighlighted ? '2px solid transparent' : '2px solid #A8463F';
+
+  const iconBoxBg = isHovered || isHighlighted ? '#FFF0DB' : '#A8463F';
+  const iconColor = isHovered || isHighlighted ? '#A8463F' : '#FFF0DB'; // This color is for actual Chakra Icons, not for Image src
+
+  const iconToDisplay = isHovered ? hoverIconSrc : defaultIconSrc;
+
   return (
     <Box
-      bg="#A8463F" // A deep reddish-brown color
-      color="white"
-      p={6}
-      my={2}
-      borderRadius="md"
-      borderBottom="2px solid white"
+      bg={currentBg}
+      color={currentColor}
+      p={'24px'}
+      borderRadius="30px"
+      border={currentBorder}
+      textAlign="center"
+      width={{ base: '100%', md: '30%' }}
+      transition="all 0.3s ease-in-out" // Smooth transition for hover effects
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      _hover={{
+        cursor: 'pointer',
+      }}
     >
-      <Icon as={icon} w={'46px'} h={'46px'} mb={2} color={'#FFF0DB'} />
+      <Flex justify="center" mb={4}>
+        <Box
+          bg={iconBoxBg}
+          borderRadius="full"
+          p={4}
+          transition="all 0.3s ease-in-out" // Smooth transition for icon box bg
+        >
+          <Image
+            src={iconToDisplay}
+            w={'46px'}
+            h={'46px'}
+            // If using an Image component, the 'color' prop won't directly change the image's color.
+            // You might need a different approach (e.g., SVG manipulation or separate images for different colors)
+            // For now, we'll keep the color prop as a placeholder if you decide to switch to actual Icon components.
+            color={iconColor}
+          />
+        </Box>
+      </Flex>
       <Heading
         as="h3"
-        fontSize={{ base: '20px', md: '24px', lg: '26px', xl: '34px' }}
+        fontSize={{
+          base: '20px',
+          sm: '24px',
+          md: '28px',
+          lg: '34px',
+          '2xl': '40px',
+        }}
         fontWeight={'200'}
-        color={'#FFF0DB'}
+        fontFamily={'Times'}
+        color={currentColor}
+        mt={'20px'}
+        mb={'10px'}
+        transition="color 0.3s ease-in-out" // Smooth transition for text color
       >
         {title}
       </Heading>
       <Text
-        fontSize={{ base: '18px', md: '20px', '2px': '24px' }}
-        fontStyle={'ExtraLight'}
+        fontSize={{ base: '20px', md: '24px', lg: '26px', '2xl': '34px' }}
         fontWeight={'200'}
-        mt={'5px'}
-        color={'#FFF0DB'}
+        color={currentColor}
+        transition="color 0.3s ease-in-out" // Smooth transition for text color
       >
         {description}
       </Text>
@@ -36,75 +86,60 @@ const ValueCard = ({ icon, title, description }) => {
   );
 };
 
-// This is the main component structure
-const OurValuesSection = () => {
+const OurValuesSection = ({ title1, title2 }) => {
   return (
     <Flex
-      direction={{ base: 'column', md: 'row' }}
+      direction="column"
       alignItems="center"
-      justifyContent="space-between"
-      bg="#FFF0DB" // Light beige background color
+      justifyContent="center"
+      maxW={'1680px'}
+      margin={'auto'}
+      px={'20px'}
+      pb={{ base: '50px', md: '60px', '2xl': '117px' }}
     >
-      {/* Left side: Image */}
-      <Box
-        // flex={{ base: '1', md: '0.5' }}
-        // w="100%"
-        // h={{ base: '400px', md: 'auto' }}
-        overflow="hidden"
+      <Heading
+        as="h2"
+        fontSize={{ base: '40px', md: '50px', lg: '60px' }}
+        fontWeight="200"
+        color="#A8463F"
+        mb={10}
+        textAlign="center"
       >
-        <Image
-          src="/image/valueImg.png"
-          alt="Two men discussing business"
-          objectFit="cover"
-          w="100%"
-          h="100%"
-          filter="sepia(0.6)"
-        />
-      </Box>
-
-      {/* Right side: Values */}
-      <Flex
-        // flex={{ base: '1', md: '0.5' }}
-        direction="column"
-        py={'40px'}
-        px={{ base: '20px', md: '40px', '2xl': '120px' }}
-        width={{ base: '100%', '2xl': '45%' }}
-      >
-        <Text
-          fontSize={{ base: '30px', md: '45px', xl: '60px', '2xl': '80px' }}
-          fontWeight="200"
-          color="#A8463F"
-        >
-          OUR{' '}
-          <Text as={'span'} fontFamily={'Times'}>
-            {' '}
-            VALUE
-          </Text>
+        {title1}{' '}
+        <Text as={'span'} fontFamily={'Times'} fontWeight="bold">
+          {title2}
         </Text>
+      </Heading>
 
-        {/* Render each value card here */}
+      <Flex
+        direction={{ base: 'column', md: 'row' }}
+        justifyContent="center"
+        alignItems="stretch"
+        wrap="wrap"
+        width="100%"
+        gap={'55px'}
+      >
         <ValueCard
-          icon={CiCreditCard1}
-          title="Agile"
-          description="Fast, flexible solutions for changing business needs."
+          title="DISCOVER"
+          description="We listen to your needs and challenges."
+          isHighlighted={false}
+          defaultIconSrc="/image/icon/Research2.png"
+          hoverIconSrc="/image/icon/Research.png"
         />
         <ValueCard
-          icon={CiCreditCard1}
-          title="Transparent"
-          description="Clear pricing, clear process, no surprises."
+          title="DISCOVER"
+          description="We listen to your needs and challenges."
+          isHighlighted={false}
+          defaultIconSrc="/image/icon/Research2.png" // Highlighted state uses the hover icon as default
+          hoverIconSrc="/image/icon/Research.png" // On hover, it goes back to the unhighlighted icon
         />
         <ValueCard
-          icon={CiCreditCard1}
-          title="Tech-Forward"
-          description="Leveraging AI and modern tools to stay ahead."
+          title="DISCOVER"
+          description="We listen to your needs and challenges."
+          isHighlighted={false}
+          defaultIconSrc="/image/icon/Research2.png"
+          hoverIconSrc="/image/icon/Research.png"
         />
-        <ValueCard
-          icon={CiCreditCard1}
-          title="Client-Centered"
-          description="Built on trust, clarity, and long-term partnerships."
-        />
-
-        {/* Add the other two cards here */}
       </Flex>
     </Flex>
   );

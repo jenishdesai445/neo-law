@@ -21,19 +21,12 @@ function App() {
         >
           <Header />
         </Box>
-
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/our-expertise" element={<OurExpertisePages />} />
           <Route path="/get-in-touch" element={<GetInTouchpage />} />
-          {/* <Route path="/about" element={<AboutPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/products" element={<ProductsPage />} /> */}
-          {/* Add a catch-all route for 404 pages */}
-          {/* <Route path="*" element={<NotFoundPage />} /> */}
         </Routes>
-
         <Footer />
       </Router>
     </ChakraProvider>

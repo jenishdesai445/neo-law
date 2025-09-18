@@ -17,8 +17,6 @@ const OurOffice = () => {
       bg="white"
       maxW={'1680px'}
       margin={'auto'}
-      py={{ base: '50px', md: '70px', lg: '80px', '2xl': '122px' }}
-      px={{ base: '20px' }}
       display="flex"
       flexDirection={{ base: 'column', lg: 'row' }}
       alignItems="center"
@@ -32,6 +30,8 @@ const OurOffice = () => {
         flex={1}
         width={{ base: '100%', md: 'auto' }}
         textAlign={{ base: 'left', lg: 'left' }}
+        py={{ base: '50px', md: '70px', lg: '80px', '2xl': '122px' }}
+        px={{ base: '20px' }}
       >
         <Box>
           <Heading
@@ -91,12 +91,17 @@ const OurOffice = () => {
         </Box>
       </Box>
 
-      <Box flex="2" mt={{ base: 4, lg: 0 }} ml={{ lg: 8 }}>
-        <Image
-          src="/image/ourOfficeImg.png"
-          alt="Eiffel Tower"
-          objectFit="cover"
-        />
+      {/* Replaced the Image component with an iframe for a map */}
+      <Box flex="2" height={'80vh'} w="100%">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.909995572877!2d-0.1277583842302371!3d51.50735097963567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604c7c7e0b5d9%3A0x7e8f5d0f6e9f1a2!2sBig%20Ben!5e0!3m2!1sen!2suk!4v1678901234567!5m2!1sen!2suk"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </Box>
     </Box>
   );

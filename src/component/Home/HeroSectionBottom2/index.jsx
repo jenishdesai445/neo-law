@@ -25,6 +25,7 @@ const HeroSectionBottom2 = () => {
       position="relative" // Needed for absolute positioning of the logo
       overflow="hidden" // Ensure nothing spills out
       mt={'49px'}
+      textTransform={'uppercase'}
     >
       <Box
         textAlign={{ base: 'center', md: 'left' }}

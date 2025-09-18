@@ -19,7 +19,7 @@ export default function AboutUsPage() {
       <FAQSection />
       <CeoMessage />
       <OurTeam />
-      <OurValuesSection />
+      <OurValuesSection title1={'OUR'} title2={'VALUE'} />
     </Box>
   );
 }
