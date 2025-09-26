@@ -63,42 +63,42 @@ const PracticeAreaSection = () => {
       title: 'Technology Law',
       description:
         'Navigating regulations around software, platforms, and emerging technologies.',
-      icon: '/image/icon/Research.png',
+      icon: '/image/icon/Research.webp',
     },
     {
       no: '2',
       title: 'Intellectual Property Protection',
       description:
         'Safeguarding your innovations with trademarks, patents, and copyrights.',
-      icon: '/image/icon/Pricing.png',
+      icon: '/image/icon/Pricing.webp',
     },
     {
       no: '3',
       title: 'Corporate & M&A',
       description:
         'Structuring smart deals, mitigating risks, and driving business growth.',
-      icon: '/image/icon/ResponseTime.png',
+      icon: '/image/icon/ResponseTime.webp',
     },
     {
       no: '4',
       title: 'Data Privacy Compliance',
       description:
         'Helping you stay ahead of GDPR, CCPA, and evolving privacy laws.',
-      icon: '/image/icon/Research.png',
+      icon: '/image/icon/Research.webp',
     },
     {
       no: '5',
       title: 'Startups & Venture Capital',
       description:
         'Legal frameworks that scale with your business—from seed to IPO.',
-      icon: '/image/icon/Pricing.png',
+      icon: '/image/icon/Pricing.webp',
     },
     {
       no: '6',
       title: 'Dispute Resolution',
       description:
         'Clear, strategic representation to resolve conflicts efficiently.',
-      icon: '/image/icon/ResponseTime.png',
+      icon: '/image/icon/ResponseTime.webp',
     },
   ];
 

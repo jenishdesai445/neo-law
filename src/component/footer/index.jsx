@@ -232,7 +232,7 @@ const Footer = () => {
         mt={'40px'}
         justifyContent={'center'}
       >
-        <Image src="/image/Footerlogo.png" />
+        <Image src="/image/Footerlogo.webp" />
       </Flex>
     </Box>
   );

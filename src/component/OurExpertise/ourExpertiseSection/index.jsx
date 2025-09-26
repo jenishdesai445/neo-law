@@ -57,7 +57,7 @@ const OurExpertiseHero = () => {
         </Flex>
       </Box>
       <Box>
-        <Image src="/image/ourEXPERTISEheroImg.png" />
+        <Image src="/image/ourEXPERTISEheroImg.webp" />
       </Box>
     </Box>
   );

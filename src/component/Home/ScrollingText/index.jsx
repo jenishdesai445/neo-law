@@ -1,66 +1,63 @@
-import React, { useState, useEffect } from 'react';
-import './ScrollingText.css'; // Assuming you save the CSS in a separate file
+import React, { useEffect, useRef } from 'react';
 import { Text } from '@chakra-ui/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ScrollingText = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+  const textRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Calculate scroll progress (this is an example, you might need to adjust based on your page layout)
-      const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
-      const currentScroll = window.scrollY;
-      const progress = currentScroll / maxScroll;
-      setScrollProgress(progress);
-    };
+    const textElement = textRef.current;
 
-    window.addEventListener('scroll', handleScroll);
-
-    // Initial check for scroll position
-    handleScroll();
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    gsap.fromTo(
+      textElement,
+      {
+        xPercent: 100, // Start off the right side of the screen
+      },
+      {
+        xPercent: -100, // Move to the left off the screen
+        ease: 'none',
+        scrollTrigger: {
+          trigger: textElement,
+          scrub: 1, // Tie the animation to the scroll
+          start: 'top bottom', // Start when the top of the text enters the bottom of the viewport
+          end: 'bottom top', // End when the bottom of the text leaves the top of the viewport
+        },
+      }
+    );
   }, []);
 
   return (
-    <section
-      className="scrolling-text-2 -single -observed"
-      style={{ '--scroll-progress': scrollProgress }}
-    >
-      <div className="scrolling-text-2-wrap">
-        <h2 className="scrolling-text-2-inner">
-          <span className="scrolling-text-2-fragment">
-            <Text
-              as="p"
-              textTransform="uppercase"
-              fontStyle={'normal'}
-              fontWeight={'200'}
-              color={'#A8463F'}
-              fontSize={{
-                base: '40px',
-                md: '60px',
-                lg: '80px',
-                '2xl': '130px',
-              }}
-            >
-              From{' '}
-              <Text
-                as={'span'}
-                fontFamily={'Times'}
-                fontStyle={'italic'}
-                fontWeight={'400'}
-              >
-                Agreement
-              </Text>{' '}
-              to Achievement
-            </Text>
-          </span>
-        </h2>
-      </div>
-    </section>
+    <div style={{ overflow: 'hidden' }}>
+      <Text
+        ref={textRef}
+        as="p"
+        textTransform="uppercase"
+        fontStyle={'normal'}
+        fontWeight={'200'}
+        color={'#A8463F'}
+        fontSize={{
+          base: '40px',
+          md: '60px',
+          lg: '80px',
+          '2xl': '130px',
+        }}
+        style={{ display: 'inline-block', whiteSpace: 'nowrap' }}
+      >
+        From{' '}
+        <Text
+          as={'span'}
+          fontFamily={'Times'}
+          fontStyle={'italic'}
+          fontWeight={'400'}
+        >
+          Agreements{' '}
+        </Text>{' '}
+        to Achievement
+      </Text>
+    </div>
   );
 };
 

@@ -45,7 +45,7 @@ const Header = () => {
       color="#b46464"
     >
       <Box>
-        <Image src="/image/logo.png" width={{ base: '150px', md: 'auto' }} />
+        <Image src="/image/logo.webp" width={{ base: '150px', md: 'auto' }} />
       </Box>
 
       <Spacer />

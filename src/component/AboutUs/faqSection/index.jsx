@@ -34,6 +34,7 @@ function FAQSection() {
       <AccordionItem
         borderTop={'1px solid #A8463F'}
         py={{ base: '15px', xl: '30px' }}
+        px={{ base: '20px', md: '50px', '2xl': '120px' }}
       >
         {({ isExpanded }) => (
           <>
@@ -73,7 +74,11 @@ function FAQSection() {
         )}
       </AccordionItem>
 
-      <AccordionItem borderTop={'1px solid #A8463F'}>
+      <AccordionItem
+        borderTop={'1px solid #A8463F'}
+        py={{ base: '15px', xl: '30px' }}
+        px={{ base: '20px', md: '50px', '2xl': '120px' }}
+      >
         {({ isExpanded }) => (
           <>
             <h2>
@@ -110,6 +115,8 @@ function FAQSection() {
       <AccordionItem
         borderTop={'1px solid #A8463F'}
         borderBottom={'1px solid #A8463F'}
+        py={{ base: '15px', xl: '30px' }}
+        px={{ base: '20px', md: '50px', '2xl': '120px' }}
       >
         {({ isExpanded }) => (
           <>

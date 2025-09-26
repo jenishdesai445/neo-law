@@ -123,22 +123,22 @@ const OurValuesSection = ({ title1, title2 }) => {
           title="DISCOVER"
           description="We listen to your needs and challenges."
           isHighlighted={false}
-          defaultIconSrc="/image/icon/Research2.png"
-          hoverIconSrc="/image/icon/Research.png"
+          defaultIconSrc="/image/icon/Research2.webp"
+          hoverIconSrc="/image/icon/Research.webp"
         />
         <ValueCard
           title="DISCOVER"
           description="We listen to your needs and challenges."
           isHighlighted={false}
-          defaultIconSrc="/image/icon/Research2.png" // Highlighted state uses the hover icon as default
-          hoverIconSrc="/image/icon/Research.png" // On hover, it goes back to the unhighlighted icon
+          defaultIconSrc="/image/icon/Research2.webp" // Highlighted state uses the hover icon as default
+          hoverIconSrc="/image/icon/Research.webp" // On hover, it goes back to the unhighlighted icon
         />
         <ValueCard
           title="DISCOVER"
           description="We listen to your needs and challenges."
           isHighlighted={false}
-          defaultIconSrc="/image/icon/Research2.png"
-          hoverIconSrc="/image/icon/Research.png"
+          defaultIconSrc="/image/icon/Research2.webp"
+          hoverIconSrc="/image/icon/Research.webp"
         />
       </Flex>
     </Flex>

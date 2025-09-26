@@ -23,7 +23,7 @@ const ArticleItem = ({ title, description }) => (
     justifyContent="space-between"
     alignItems="center"
     py={{ base: '20px', md: '30px', '2xl': '50px' }}
-    px={{ base: '20px', '2xl': '120px' }}
+    px={{ base: '20px', md: '50px', '2xl': '120px' }}
     borderTop="1.5px solid #A8463F"
     _last={{ borderBottom: '1.5px solid #A8463F' }}
     _hover={{ textDecoration: 'none' }}
@@ -55,7 +55,7 @@ const ArticleItem = ({ title, description }) => (
       display={{ base: 'none', md: 'block' }} // Hide on mobile for cleaner look
     >
       <Image
-        src={'/image/icon/ArrowTop.png'}
+        src={'/image/icon/ArrowTop.webp'}
         color="#A8463F"
         width={{ base: '30px', '2xl': '59px' }}
       />

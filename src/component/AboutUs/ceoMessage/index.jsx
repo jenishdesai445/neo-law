@@ -87,7 +87,7 @@ const CeoMessage = () => {
         <Box flex="none" w={{ base: '80%', md: '35%' }} textAlign="center">
           {/* Placeholder for the CEO's image */}
           <Image
-            src="/image/businessman-dress-code-posing.png"
+            src="/image/businessman-dress-code-posing.webp"
             alt="CEO of Neo Law"
             objectFit="cover"
           />

@@ -23,10 +23,6 @@ const ContactForm = () => {
       bg={formBackground}
       py={{ base: '50px', md: '60px', lg: '89px' }}
       color={textColor}
-
-      // display="flex"
-      // alignItems="center"
-      // justifyContent="space-between"
     >
       <Flex
         maxW={{ base: '100%', lg: '80%', lg: '1680px' }}
@@ -85,44 +81,52 @@ const ContactForm = () => {
               gap={{ base: 6, sm: 8 }}
             >
               <FormControl>
-                {/* <FormLabel
+                {/* <Input
+                  variant="flushed"
+                  placeholder="First Name*"
+                
+                  textColor={'#FFF0DB'}
+                  borderColor={inputBorderColor}
+                  _focus={{ borderColor: '#FFF0DB' }}
+                  _placeholder={{ color: '#FFF0DB' }} // Added this line
+                /> */}
+                <Input
+                  placeholder="First Name*"
+                  variant="flushed"
+                  _placeholder={{ color: 'whiteAlpha.800' }}
                   fontSize={{
                     base: '20px',
                     sm: '24px',
-                    md: '28px',
-                    xl: '34px',
-                    '2xl': '40px',
                   }}
-                  color="#FFF0DB"
+                  borderColor="#FFF0DB"
                   fontWeight={'200'}
-                >
-                  First Name*
-                </FormLabel> */}
-                <Input
-                  variant="flushed"
-                  placeholder="First Name*"
-                  borderColor={inputBorderColor}
-                  _focus={{ borderColor: '#FFF0DB' }}
+                  focusBorderColor="white"
                 />
               </FormControl>
               <FormControl>
-                <FormLabel
+                {/* <Input
+                  variant="flushed"
+                  borderColor={inputBorderColor}
+                  placeholder="Last Name*"
                   fontSize={{
                     base: '20px',
                     sm: '24px',
-                    md: '28px',
-                    xl: '34px',
-                    '2xl': '40px',
                   }}
-                  color="#FFF0DB"
-                  fontWeight={'200'}
-                >
-                  Last Name*
-                </FormLabel>
-                <Input
-                  variant="flushed"
-                  borderColor={inputBorderColor}
+                  textColor={'#FFF0DB'}
                   _focus={{ borderColor: '#FFF0DB' }}
+                  _placeholder={{ color: '#FFF0DB' }} // Added this line
+                /> */}
+                <Input
+                  placeholder="Last Name*"
+                  variant="flushed"
+                  _placeholder={{ color: 'whiteAlpha.800' }}
+                  fontSize={{
+                    base: '20px',
+                    sm: '24px',
+                  }}
+                  borderColor="#FFF0DB"
+                  fontWeight={'200'}
+                  focusBorderColor="white"
                 />
               </FormControl>
             </Flex>
@@ -132,65 +136,79 @@ const ContactForm = () => {
               gap={{ base: 6, sm: 8 }}
             >
               <FormControl>
-                <FormLabel
+                {/* <Input
+                  variant="flushed"
+                  placeholder="Email*"
                   fontSize={{
                     base: '20px',
                     sm: '24px',
-                    md: '28px',
-                    xl: '34px',
-                    '2xl': '40px',
                   }}
-                  color="#FFF0DB"
-                  fontWeight={'200'}
-                >
-                  Email*
-                </FormLabel>
-                <Input
-                  variant="flushed"
+                  textColor={'#FFF0DB'}
                   borderColor={inputBorderColor}
                   _focus={{ borderColor: '#FFF0DB' }}
+                  _placeholder={{ color: '#FFF0DB' }} // Added this line
+                /> */}
+                <Input
+                  placeholder="Email*"
+                  variant="flushed"
+                  _placeholder={{ color: 'whiteAlpha.800' }}
+                  fontSize={{
+                    base: '20px',
+                    sm: '24px',
+                  }}
+                  borderColor="#FFF0DB"
+                  fontWeight={'200'}
+                  focusBorderColor="white"
                 />
               </FormControl>
               <FormControl>
-                <FormLabel
+                {/* <Input
+                  variant="flushed"
+                  placeholder="Subject*"
                   fontSize={{
                     base: '20px',
                     sm: '24px',
-                    md: '28px',
-                    xl: '34px',
-                    '2xl': '40px',
                   }}
-                  color="#FFF0DB"
-                  fontWeight={'200'}
-                >
-                  Subject*
-                </FormLabel>
-                <Input
-                  variant="flushed"
+                  textColor={'#FFF0DB'}
                   borderColor={inputBorderColor}
                   _focus={{ borderColor: '#FFF0DB' }}
+                  _placeholder={{ color: '#FFF0DB' }} // Added this line
+                /> */}
+                <Input
+                  placeholder="Subject*"
+                  variant="flushed"
+                  _placeholder={{ color: 'whiteAlpha.800' }}
+                  fontSize={{
+                    base: '20px',
+                    sm: '24px',
+                  }}
+                  borderColor="#FFF0DB"
+                  fontWeight={'200'}
+                  focusBorderColor="white"
                 />
               </FormControl>
             </Flex>
             <FormControl w="100%">
-              <FormLabel
+              {/* <Textarea
+                variant="flushed"
+                placeholder="Message*"
+                textColor={'#FFF0DB'}
+                borderColor={inputBorderColor}
+                _focus={{ borderColor: '#FFF0DB' }}
+                _placeholder={{ color: '#FFF0DB' }} // Added this line
+                resize="none"
+              /> */}
+              <Textarea
+                placeholder="Message*"
+                variant="flushed"
                 fontSize={{
                   base: '20px',
                   sm: '24px',
-                  md: '28px',
-                  xl: '34px',
-                  '2xl': '40px',
                 }}
-                color="#FFF0DB"
+                _placeholder={{ color: 'whiteAlpha.800' }}
+                borderColor="#FFF0DB"
                 fontWeight={'200'}
-              >
-                Message*
-              </FormLabel>
-              <Textarea
-                variant="flushed"
-                borderColor={inputBorderColor}
-                _focus={{ borderColor: '#FFF0DB' }}
-                resize="none"
+                focusBorderColor="white"
               />
             </FormControl>
 

@@ -4,7 +4,7 @@ const MissionSection = () => {
   return (
     <Box
       bg={'#FFF0DB'}
-      bgImage="url('/image/bgOverMission.png')"
+      bgImage="url('/image/bgOverMission.webp')"
       bgPosition="center"
       bgRepeat="no-repeat"
       bgSize="cover"

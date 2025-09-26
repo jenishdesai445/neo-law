@@ -1,21 +1,19 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
-import { keyframes } from '@emotion/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-// Define the keyframe animation for the spinning text
-const rotateText = keyframes`
-  0% { transform: rotate(360deg); }
-  100% { transform: rotate(0deg); }
-`;
+// Register the GSAP ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 export default function SpinningText() {
-  // Use a ref to access the text element
+  // A ref to the spinning text container
   const textRef = useRef(null);
-
-  // The text you want to display
+  const spinningContainerRef = useRef(null);
   const textToDisplay = ' LEGAL AND CORPORATE ★ CONSULTING ★';
 
-  // Split the text and apply the rotation to each character
+  // This useEffect handles the dynamic rendering of the text characters
   useEffect(() => {
     if (textRef.current) {
       const textElement = textRef.current;
@@ -23,11 +21,10 @@ export default function SpinningText() {
       const totalChars = characters.length;
       const angleIncrement = 360 / totalChars;
 
-      // Define responsive font sizes based on screen size
       const fontSize = {
-        base: '8px', // Smaller font for small screens
-        sm: '10px', // Standard font for medium screens
-        md: '22px', // Larger font for large screens
+        base: '8px',
+        sm: '10px',
+        md: '16px',
       };
 
       textElement.innerHTML = characters
@@ -37,22 +34,21 @@ export default function SpinningText() {
               position: absolute;
               left: 50%;
               transform-origin: 0 calc(var(--circle-size) / 2);
-              font-size: var(--font-size); /* Use the CSS variable here */
-              letter-spacing: 0;
+              font-size: var(--font-size);
+              letter-spacing: normal;
+              padding-top: 5px;
               transform: rotate(${i * angleIncrement}deg);
             ">${char}</span>`
         )
         .join('');
 
-      // Set the CSS variable for font size based on the responsive values
-      // This is a simple way to implement it, but a more robust solution would be to use a state variable and update on resize
       const setFontSize = () => {
         if (window.innerWidth < 350) {
           textRef.current.style.setProperty('--font-size', fontSize.base);
         } else if (window.innerWidth < 500) {
           textRef.current.style.setProperty('--font-size', fontSize.sm);
         } else {
-          textRef.current.style.setProperty('--font-size', fontSize.lg);
+          textRef.current.style.setProperty('--font-size', fontSize.md);
         }
       };
 
@@ -61,6 +57,23 @@ export default function SpinningText() {
       return () => window.removeEventListener('resize', setFontSize);
     }
   }, [textToDisplay]);
+
+  // The GSAP animation with ScrollTrigger
+  useGSAP(
+    () => {
+      gsap.to(textRef.current, {
+        rotation: 360, // Rotate the element 360 degrees
+        ease: 'none', // Linear ease for constant speed
+        scrollTrigger: {
+          trigger: spinningContainerRef.current,
+          start: 'top bottom', // Start the animation when the top of the trigger hits the bottom of the viewport
+          end: 'bottom top', // End the animation when the bottom of the trigger leaves the top of the viewport
+          scrub: 1, // Smooth scrubbing. The animation "catches up" to the scroll position
+        },
+      });
+    },
+    { scope: spinningContainerRef }
+  ); // Use the scope for safe cleanup
 
   return (
     <Box width="fit-content">
@@ -71,7 +84,7 @@ export default function SpinningText() {
         justifyContent="center"
         alignItems="center"
         fontFamily="'Raleway', sans-serif"
-        bg="#FFF0DB" // A light gray background for contrast
+        bg="#FFF0DB"
         p="10px"
       >
         <Box
@@ -82,8 +95,9 @@ export default function SpinningText() {
           borderRadius="full"
           width={{ base: '100px', sm: '150px', md: '180px' }}
           height={{ base: '100px', sm: '150px', md: '180px' }}
+          ref={spinningContainerRef} // Ref for the trigger element
           sx={{
-            '--circle-size': '180px', // Default size for the transform-origin
+            '--circle-size': '180px',
             '@media (max-width: 768px)': {
               '--circle-size': '150px',
             },
@@ -92,24 +106,19 @@ export default function SpinningText() {
             },
           }}
         >
-          {/* Placeholder for the logo */}
-
           <Box
             position="absolute"
             bg="#FFF0DB"
             borderRadius="full"
-            width={{ base: '70px', sm: '100px', md: '116px' }}
-            height={{ base: '70px', sm: '100px', md: '116px' }}
-            backgroundImage="url('/image/icon/SpinningLogo.png')"
+            width={{ base: '70px', sm: '100px', md: '120px' }}
+            height={{ base: '70px', sm: '100px', md: '120px' }}
+            backgroundImage="url('/image/icon/SpinningLogo.webp')"
             backgroundSize={{ base: 'contain', md: 'inherit' }}
             backgroundPosition="center"
             bgRepeat="no-repeat"
             zIndex={1}
             border="1px solid #A8463F"
           />
-
-          {/* The spinning text container */}
-
           <Box
             bg="#FFF0DB"
             rounded="100%"
@@ -119,10 +128,8 @@ export default function SpinningText() {
             width="100%"
             height="100%"
             ref={textRef}
-            animation={`${rotateText} 10s linear infinite`}
-          >
-            {/* The content will be dynamically generated by the useEffect hook */}
-          </Box>
+            // GSAP handles the transform style, so no need for an inline style here
+          ></Box>
         </Box>
       </Box>
     </Box>

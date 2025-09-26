@@ -5,17 +5,17 @@ const teamMembers = [
   {
     name: 'Suja Chandrasekaran',
     title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png', // Replace with your image URLs
+    imageUrl: '/image/userImage.webp', // Replace with your image URLs
   },
   {
     name: 'Suja Chandrasekaran',
     title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png',
+    imageUrl: '/image/userImage.webp',
   },
   {
     name: 'Suja Chandrasekaran',
     title: 'Founder of the T200 Foundation',
-    imageUrl: '/image/userImage.png',
+    imageUrl: '/image/userImage.webp',
   },
 ];
 

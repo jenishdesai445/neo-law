@@ -1,6 +1,6 @@
 // import { Box, Button, Flex, Icon, Image } from '@chakra-ui/react';
 // import { FaChevronRight } from 'react-icons/fa';
-// import NeoLawLogo from './path/to/your/neo-law-logo.png'; // Make sure to provide the correct path to your logo image
+// import NeoLawLogo from './path/to/your/neo-law-logo.webp'; // Make sure to provide the correct path to your logo image
 
 // const HeroSectionBottom = () => {
 //   return (
@@ -57,6 +57,131 @@
 
 // export default HeroSectionBottom;
 
+// import React, { useEffect, useRef } from 'react';
+// import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import SplitType from 'split-type';
+// import { Box, Flex, Button, Heading, Text, Icon } from '@chakra-ui/react';
+// import { FaChevronRight } from 'react-icons/fa';
+// import './style.css';
+// import { BsChevronRight } from 'react-icons/bs';
+// import NeoButton from '../../common/button';
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// const HeroSectionBottom = React.forwardRef((props, ref) => {
+//   const textRef = useRef(null);
+//   const tl = useRef(null);
+
+//   useEffect(() => {
+//     // Check for the SplitType instance and revert if it exists
+//     const splitInstance = SplitType.revert(textRef.current);
+//     if (splitInstance) {
+//       splitInstance.revert();
+//     }
+
+//     const split = new SplitType(textRef.current, {
+//       types: 'lines, words, chars',
+//     });
+
+//     if (tl.current) {
+//       tl.current.kill();
+//     }
+
+//     tl.current = gsap.timeline({
+//       scrollTrigger: {
+//         trigger: textRef.current.parentElement,
+//         start: 'top top',
+//         end: '+=10%',
+//         // pin: true,
+//         scrub: 0.1,
+//         markers: false,
+//       },
+//     });
+
+//     tl.current.to(split.chars, {
+//       color: '#A8463F',
+//       stagger: 1, // Adjusted stagger for a similar effect
+//       // ease: 'power1.inOut',
+//     });
+
+//     return () => {
+//       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+//       if (tl.current) {
+//         tl.current.kill();
+//       }
+//       split.revert();
+//     };
+//   }, []);
+
+//   return (
+//     <Box ref={ref} id="main" className="text-outer-wrapper">
+//       <Box className="txt-wrapper">
+//         <Text
+//           fontSize={{
+//             base: '20px',
+//             sm: '25px',
+//             md: '30px',
+//             lg: '35px',
+//             '2xl': '40px',
+//           }}
+//           mt={{ base: '50px', md: '150px', lg: '180px', xl: '228px' }}
+//           ref={textRef}
+//           fontWeight={'200'}
+//           textAlign={{ base: 'center', lg: 'start' }}
+//         >
+//           Protecting innovation in a complex, ever-evolving world.{' '}
+//           <Text
+//             as={'span'}
+//             fontStyle={'italic'}
+//             fontWeight={'400'}
+//             fontFamily={'Times'}
+//           >
+//             At NEO
+//           </Text>
+//           , we combine deep legal expertise with cutting-edge technology to
+//           guide your business forward.
+//         </Text>
+//       </Box>
+//       <Flex
+//         direction={{ base: 'column', md: 'row' }}
+//         align="center"
+//         justify="end"
+//         bg="white"
+//         color="#A8463F"
+//       >
+//         <Box
+//           textAlign={{ base: 'center', lg: 'left' }}
+//           maxW={{ base: '100%', lg: '50%' }}
+//           mb={{ base: 8, md: 0 }}
+//           mt={{ base: '30px', md: '50px' }}
+//         >
+//           <Text
+//             fontSize={{ base: 'xl', md: '24px' }}
+//             mb={'30px'}
+//             fontWeight="200"
+//           >
+//             Protecting innovation in a complex, ever-evolving world. At NEO, we
+//             combine deep legal expertise with cutting-edge technology to guide
+//             your business forward.
+//           </Text>
+//           <Flex
+//             gap={{ base: '10px', md: '30px' }}
+//             flexWrap={'wrap'}
+//             alignItems={{ base: 'center', lg: 'start' }}
+//             justifyContent={{ base: 'center', lg: 'start' }}
+//           >
+//             {/* <NeoButton>Schedule a Consultation</NeoButton> */}
+
+//             <NeoButton>View Our Expertise</NeoButton>
+//           </Flex>
+//         </Box>
+//       </Flex>
+//     </Box>
+//   );
+// });
+
+// export default HeroSectionBottom;
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -74,7 +199,7 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
   const tl = useRef(null);
 
   useEffect(() => {
-    // Check for the SplitType instance and revert if it exists
+    // Revert the SplitType instance if it already exists to avoid issues on re-renders
     const splitInstance = SplitType.revert(textRef.current);
     if (splitInstance) {
       splitInstance.revert();
@@ -84,6 +209,7 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
       types: 'lines, words, chars',
     });
 
+    // Kill any existing timeline to prevent multiple animations
     if (tl.current) {
       tl.current.kill();
     }
@@ -92,19 +218,20 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
       scrollTrigger: {
         trigger: textRef.current.parentElement,
         start: 'top top',
-        end: '+=200%',
-        pin: true,
+        end: '+=1000',
         scrub: 0.1,
-        markers: false,
+        pin: true,
+        markers: false, // Set to true for debugging
       },
     });
 
     tl.current.to(split.chars, {
       color: '#A8463F',
-      stagger: 0.1, // Adjusted stagger for a similar effect
-      ease: 'power1.inOut',
+      stagger: 0.05, // A smaller stagger for a faster fill effect
+      ease: 'none',
     });
 
+    // Cleanup function
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
       if (tl.current) {
@@ -115,7 +242,12 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
   }, []);
 
   return (
-    <Box ref={ref} id="main" className="text-outer-wrapper">
+    <Box
+      ref={ref}
+      id="main"
+      className="text-outer-wrapper"
+      position={'relative'}
+    >
       <Box className="txt-wrapper">
         <Text
           fontSize={{
@@ -171,8 +303,6 @@ const HeroSectionBottom = React.forwardRef((props, ref) => {
             alignItems={{ base: 'center', lg: 'start' }}
             justifyContent={{ base: 'center', lg: 'start' }}
           >
-            {/* <NeoButton>Schedule a Consultation</NeoButton> */}
-
             <NeoButton>View Our Expertise</NeoButton>
           </Flex>
         </Box>

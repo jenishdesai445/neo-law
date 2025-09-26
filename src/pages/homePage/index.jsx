@@ -14,7 +14,7 @@ export default function HomePage() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <Box>
+    <Box position={'relative'}>
       <Box position={'relative'}>
         <ImageHeroSection />
         <Box
